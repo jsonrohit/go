@@ -3,7 +3,7 @@ package routes
 import (
 	"fiber/src/handlers"
 	"fiber/src/repository"
-	"fiber/src/services"
+	services "fiber/src/services/users"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"

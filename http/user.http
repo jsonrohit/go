@@ -1,0 +1,38 @@
+@url = http://127.0.0.1:3000
+
+#### Get users ####
+GET {{url}}/api/v1/users
+Content-Type: application/json
+Accept : application/json
+
+#### View user details ####
+GET {{url}}/api/v1/users/1
+Content-Type: application/json
+Accept : application/json
+
+#### Create user ####
+POST {{url}}/api/v1/users
+Content-Type: application/json
+Accept : application/json
+
+{
+    "name" :"Rohit kumar",
+    "email" :"test@gmail.com",
+    "age" :25
+}
+
+#### Update user ####
+PUT {{url}}/api/v1/users/2
+Content-Type: application/json
+Accept : application/json
+
+{
+    "name" :"Rohit singh",
+    "email" :"test1@gmail.com",
+    "age" :25
+}
+
+#### Delete user ####
+DELETE {{url}}/api/v1/users/3
+Content-Type: application/json
+Accept : application/json
