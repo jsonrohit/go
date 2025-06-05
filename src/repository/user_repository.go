@@ -3,7 +3,7 @@ package repository
 
 import (
 	"errors"
-	"fiber/internal/models"
+	"fiber/src/models"
 	"time"
 )
 
@@ -30,17 +30,17 @@ func NewInMemoryUserRepository() UserRepository {
 		users:  make([]*models.User, 0),
 		nextID: 1,
 	}
-	
+
 	// Initialize with sample data
 	repo.initSampleData()
-	
+
 	return repo
 }
 
 // initSampleData adds some initial users
 func (r *InMemoryUserRepository) initSampleData() {
 	now := time.Now()
-	
+
 	sampleUsers := []*models.User{
 		{
 			ID:        1,
@@ -67,7 +67,7 @@ func (r *InMemoryUserRepository) initSampleData() {
 			UpdatedAt: now,
 		},
 	}
-	
+
 	r.users = sampleUsers
 	r.nextID = 4
 }
@@ -101,7 +101,7 @@ func (r *InMemoryUserRepository) GetByEmail(email string) (*models.User, error) 
 func (r *InMemoryUserRepository) Create(user *models.User) (*models.User, error) {
 	user.ID = r.nextID
 	r.nextID++
-	
+
 	r.users = append(r.users, user)
 	return user, nil
 }
@@ -113,7 +113,7 @@ func (r *InMemoryUserRepository) Update(id int, updatedUser *models.User) (*mode
 			updatedUser.ID = id
 			updatedUser.CreatedAt = user.CreatedAt // Preserve creation time
 			updatedUser.UpdatedAt = time.Now()
-			
+
 			r.users[i] = updatedUser
 			return updatedUser, nil
 		}

@@ -1,4 +1,4 @@
-module my-fiber-app
+module fiber
 
 go 1.24.3
 
